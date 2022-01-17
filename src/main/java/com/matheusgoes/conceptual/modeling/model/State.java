@@ -8,8 +8,8 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "tb_category")
-public class Category {
+@Table(name = "tb_state")
+public class State {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -17,6 +17,6 @@ public class Category {
     private Long id;
     private String name;
 
-    @ManyToMany(mappedBy = "categories")
-    private Set<Product> products = new HashSet<>();
+    @OneToMany(mappedBy = "state")
+    private Set<City> cities = new HashSet<>();
 }

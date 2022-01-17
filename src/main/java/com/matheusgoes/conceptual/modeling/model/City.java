@@ -3,13 +3,11 @@ package com.matheusgoes.conceptual.modeling.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "tb_category")
-public class Category {
+@Table(name = "tb_city")
+public class City {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -17,6 +15,7 @@ public class Category {
     private Long id;
     private String name;
 
-    @ManyToMany(mappedBy = "categories")
-    private Set<Product> products = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "state_id")
+    private State state;
 }
