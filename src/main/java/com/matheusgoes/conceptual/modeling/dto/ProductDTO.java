@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -24,6 +25,8 @@ public class ProductDTO implements Serializable {
 
     @PositiveOrZero
     private Double price;
+
+    @NotEmpty
     private Set<CategoryDTO> categories = new HashSet<>();
 
     public ProductDTO(Product entity) {
